@@ -14,4 +14,4 @@ action buttons
 
 textOutput() is usually paired with renderText()
 
-verbatimTextOutput() is usually paired with renderPrint()
+verbatimTextOutput() is usually paired with renderPrint()git a
