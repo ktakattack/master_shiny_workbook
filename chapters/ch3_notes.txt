@@ -1,0 +1,45 @@
+Ch 3 Basic reactivity------------------------------------------------------------------------------  
+3.2 Server function  ------------------------------------------------------------------------------  
+Shiny invokes your server() function each time a new session starts. This is why almost all of the reactive programming you’ll do in Shiny will be inside the server function6 .
+
+Server functions take three parameters: input, output, and session. Because you never call the server function yourself, you’ll never create these objects yourself.
+
+__INPUT__
+list-like object
+
+Input objects are read-only (no modification allowed)
+
+To read from an input, you must be in a reactive context created by a function like renderText() or reactive(). 
+
+__OUTPUT__
+list-like object
+
+Pretty much the same as input
+
+Always use the output object in concert with a render function (renderText,etc.)
+
+render func       It sets up a special reactive context that automatically tracks what inputs the output uses.
+                  It converts the output of your R code into HTML suitable for display on a web page.
+                  
+Instead, make sure that reactive expressions and outputs only refer to things defined above, not below (topological sort).                  
+                  
+3.3 Reactive expressions------------------------------------------------------------------------------                  
+Shiny ...
+-is declarative
+-is lazy (ie would not error on a mispelled var, just wouldn't run)
+-DOES NOT run top to bottom (may want to ues reactlog::reactlog_enable() to see input/ouputs OR find unused dependencies)
+-the order in which reactive code is run is determined only by the reactive graph, not by its layout in the server function.
+
+
+3.4 Reactive------------------------------------------------------------------------------  
+Like inputs, you can use the results of a reactive expression in an output.
+
+Like outputs, reactive expressions depend on inputs and automatically know when they need updating.
+To avoid a backlog of work, add an actionButton() so the user opts-in to expensive calculations.
+
+
+3.6 Observers----------------------------------------------------------
+
+observeEvent() is used for debugging
+
+It has two important arguments: eventExpr and handlerExpr. The first argument is the input or expression to take a dependency on; the second argument is the code that will be run
