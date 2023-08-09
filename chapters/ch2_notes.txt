@@ -1,0 +1,17 @@
+Chapter 2 Notes - Basic UI
+2.2 INPUTS
+slider input
+
+dropdown menu
+
+radio buttons
+
+file upload
+
+action buttons
+
+2.3 OUTPUTS
+
+textOutput() is usually paired with renderText()
+
+verbatimTextOutput() is usually paired with renderPrint()
